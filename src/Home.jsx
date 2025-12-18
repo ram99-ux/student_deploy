@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import {url} from './url'
 
 
-function Home() {
+function Home({ setAdminLoggedIn }) {
     const navigate=useNavigate()
     const [data, setdata] = useState([])
     const [ids, setids] = useState()
@@ -111,12 +111,13 @@ function Home() {
         setcancel(false);
     }
     
-    const logout = () => {
-        localStorage.removeItem("adminLoggedIn");
-        localStorage.removeItem("adminName");
-        navigate('/');
-        // window.location.reload();
-    }
+     const logout = () => {
+    localStorage.removeItem("adminLoggedIn")
+    localStorage.removeItem("adminName")
+
+    setAdminLoggedIn(false)  // 🔥 triggers rerender
+    navigate("/")
+  }
     
     return (
         <div className="home">
