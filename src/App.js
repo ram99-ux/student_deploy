@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './Home'
 import Admin from './Admin'
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import {  Route, Routes, Navigate } from 'react-router-dom'
 import Header from './Header'
 import Student from './Student'
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
       <>
     
-    <Router>
+    
 
       {!adminLoggedIn && !studentLoggedIn && <Header />}
       <Routes>
@@ -22,8 +22,9 @@ function App() {
         <Route path='/student' element={!studentLoggedIn ? <Navigate to="/home" /> : <Student />}/>
         <Route path='/Admin' element={adminLoggedIn ? <Navigate to="/home" /> : <Admin />}/>
         <Route path='/home' element={adminLoggedIn?<Home/>:<Navigate to="/"/>}/>
+        <Route path='*' element={<Navigate to="/"/>}/>
       </Routes>
-    </Router>
+   
       </>
     
   )

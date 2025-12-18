@@ -55,7 +55,8 @@ const submit= async(e)=>{
          localStorage.setItem("adminName",name)
 
          if(admin){   
-            window.location.reload();
+            navigate('/home')
+            // window.location.reload();
            
             }
         

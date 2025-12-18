@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 import {url} from './url'
 
 
 function Home() {
-
+    const navigate=useNavigate()
     const [data, setdata] = useState([])
     const [ids, setids] = useState()
     const [name, setname] = useState('')
@@ -114,7 +114,8 @@ function Home() {
     const logout = () => {
         localStorage.removeItem("adminLoggedIn");
         localStorage.removeItem("adminName");
-        window.location.reload();
+        navigate('/');
+        // window.location.reload();
     }
     
     return (
