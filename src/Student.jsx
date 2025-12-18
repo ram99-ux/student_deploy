@@ -58,7 +58,7 @@ function Student({ setStudentLoggedIn }) {
   return (
     <div className="student-page">
       {!loggedIn ? (
-        <>
+        <>~
           <h2>Welcome Student</h2>
 
           <form className="student-form" onSubmit={submit}>
